@@ -11,8 +11,11 @@ class Grid:
             >>> Grid().full, Grid(81*'2').full
             (False, True)
         """
-        pass
-            
+        self.puzzle = puzzle
+        if "." not in self.puzzle:
+            self.full = True
+        else:
+            self.full = False
         
     def loadFromFile(num):
         """
@@ -23,7 +26,9 @@ class Grid:
             >>> Grid.loadFromFile(0).puzzle[:10]
             '4.....8.5.'
         """
-        pass
+        file = open("../data/grids.sud")
+        lines = file.readlines()
+        return Grid(lines[num]) 
     
 if __name__ == '__main__':
     import doctest
