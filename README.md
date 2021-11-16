@@ -1,6 +1,6 @@
 # Sudoku - Ilyes et Eren
 
-**Objetif :** Développer un Sudoku numérique en collaboration.
+**Objetif :** Développer un Sudoku numérique en collaboration.  
 
 ## CHEF DE PROJET : 
 **Nom :** Ilyes HABANI
