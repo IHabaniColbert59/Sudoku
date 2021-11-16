@@ -1,13 +1,16 @@
-# Sudoku - Ilyes et Eren
+<h1>Sudoku - Ilyes et Eren</h1>
 
-**Objetif :** Développer un Sudoku numérique en collaboration.<br />
+<p><strong>Objetif :</strong> Développer un Sudoku numérique en collaboration.</p>
 
-## CHEF DE PROJET : 
+<h2>CHEF DE PROJET :</h2> 
+<p>
+	<strong>Nom :</strong> Ilyes HABANI<br />
+	<strong>Classe :</strong> TG3
+</p>
 
-**Nom :** Ilyes HABANI<br />
-**Classe :** TG3
+<h2>COLLABORATEUR :</h2>
 
-## COLLABORATEUR : 
-
-**Nom :** Eren YILMAZ<br />
-**Classe :** TG3
+<p>
+	<strong>Nom :</strong> Eren YILMAZ<br />
+	<strong>Classe :</strong> TG3
+</p>
