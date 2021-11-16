@@ -2,13 +2,13 @@
 
 <p><strong>Objetif :</strong> Développer un Sudoku numérique en collaboration.</p>
 
-<h2>CHEF DE PROJET :</h2> 
+<h2>Chef de projet :</h2> 
 <p>
 	<strong>Nom :</strong> Ilyes HABANI<br />
 	<strong>Classe :</strong> TG3
 </p>
 
-<h2>COLLABORATEUR :</h2>
+<h2>Collaborateur :</h2>
 
 <p>
 	<strong>Nom :</strong> Eren YILMAZ<br />
