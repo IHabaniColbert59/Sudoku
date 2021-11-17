@@ -12,10 +12,7 @@ class Grid:
             (False, True)
         """
         self.puzzle = puzzle
-        if "." not in self.puzzle:
-            self.full = True
-        else:
-            self.full = False
+        self.full = "." not in self.puzzle
         
     def loadFromFile(num):
         """
