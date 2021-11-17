@@ -1,7 +1,7 @@
 class Case :
     def __init__(self, pos, value = None) :
         """
-            Constructeur par défaut
+            Constructeur par défaut.
             Arguments :
                 - pos   : position de la case (0--80)
                 - value : valeur de la case (1--9)
@@ -20,9 +20,9 @@ class Case :
         
         self.position = pos
         self.value = value
-        self.row = self.position % 9
-        self.line = self.position // 9
-        self.region = 
+        self.row = pos % 9
+        self.line = pos // 9
+        self.region = pos // 9 + 1 
     
     def setValue(self, value) :
         """
@@ -39,6 +39,6 @@ class Case :
         self.value = value
         return None
         
-if __name__ == '__main__':
+if(__name__ == '__main__') :
     import doctest
     doctest.testmod()
