@@ -1,3 +1,5 @@
+from case import Case
+
 class Grid:
     
     def __init__(self, puzzle = 81*'.'):
@@ -45,8 +47,8 @@ class Grid:
             >>> S.cases[13].region == 2
             True
         """
-        pass
-                
+        self.cases = [Case(i, int(self.puzzle[i]) if self.puzzle[i] != '.' else None) for i in range(0,81)] #Wola c moi qui l'ai fait
+        
     def casesToString(self):
         """
             Retourne une chaine de caractère représentant le Sudoku
@@ -66,7 +68,8 @@ class Grid:
             >>> S.casesToString()[0] == '5'
             True
         """
-        pass
+        
+        self.puzzleNow = "".join([case.value if case.value is not None else '.' for case in self.cases])
                 
     def setValue(self, position, value):
         """
@@ -98,6 +101,8 @@ class Grid:
                 S += f'|{self.puzzleNow[i]}'
         return S   
     
+# print(Grid.initCases(Grid()))   
+   
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
