@@ -76,7 +76,7 @@ class Grid:
  ​                ​s​ ​+=​ ​"." 
  ​            ​else​: 
  ​                ​s​ ​+=​ ​f'​{​self​.​cases​[​i​].​value​}​' 
- ​        ​return​ ​buff 
+ ​        ​return​ ​s
  ​                
                 
     def setValue(self, position, value):
