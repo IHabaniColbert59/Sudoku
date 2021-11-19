@@ -25,7 +25,7 @@ class Grid:
         """
         file = open("../data/grids.sud")
         lines = file.readlines()
-        return Grid(lines[num]) 
+        return Grid(lines[num][:-1]) 
     
 if __name__ == '__main__':
     import doctest
