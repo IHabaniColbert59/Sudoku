@@ -69,7 +69,15 @@ class Grid:
             True
         """
         
-        self.puzzleNow = "".join([case.value if case.value is not None else '.' for case in self.cases])
+         
+ ​        ​s ​=​ ​"" 
+ ​        ​for​ ​i​ ​in​ ​range​(​81​): 
+ ​            ​if​ ​self​.​cases​[​i​].​value​ ​==​ ​None​: 
+ ​                ​s​ ​+=​ ​"." 
+ ​            ​else​: 
+ ​                ​s​ ​+=​ ​f'​{​self​.​cases​[​i​].​value​}​' 
+ ​        ​return​ ​buff 
+ ​                
                 
     def setValue(self, position, value):
         """
