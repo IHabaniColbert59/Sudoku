@@ -95,7 +95,13 @@ class Grid:
             >>> S.puzzleNow[0] == '7'
             False
         """
-        pass
+         
+ ​        ​if​ ​self​.​puzzle​[​position​] ​!=​ ​'.'​: 
+ ​            ​return​ ​None 
+ ​             
+ ​        ​else​: 
+ ​            ​self​.​cases​[​position​].​setValue​(​value​) 
+ ​            ​self​.​puzzleNow​ ​=​ ​self​.​casesToString​()
                 
     def __repr__(self):
         """
