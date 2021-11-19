@@ -2,8 +2,8 @@
 
 <h2>Classes :</h2>
 
-<h3>Case :</h3>
-<p>Classe représentant une case dans le Sudoku. Elle se car actérise par : 
+<h3>Case</h3>
+<p>Classe représentant une case dans le Sudoku. Elle se caractérise par : 
 <ul>
     <li>Une position, variant de 0 à 80.</li>
     <li>Une valeur (chiffre).</li>
