@@ -1,6 +1,5 @@
-class Stack:
-    
-    def __init__(self):
+class Stack :
+    def __init__(self) :
         """
             Initialisation de la pile
             
@@ -14,7 +13,7 @@ class Stack:
         self.stack = []
         self.top = None
         
-    def push(self, el):
+    def push(self, el) :
         """
             Ajouter un élément à la pile
             
@@ -32,7 +31,7 @@ class Stack:
         self.stack.append(el)
         self.top = el
     
-    def empty(self):
+    def empty(self) :
         """
             Vérifie si la pile est vide
             
@@ -46,7 +45,7 @@ class Stack:
         """
         return len(self.stack) == 0
         
-    def pop(self):
+    def pop(self) :
         """
             Retirer et renvoyer si possible l'élément en tête de pile
             
@@ -71,14 +70,12 @@ class Stack:
             13
         """
         
-        if(len(self.stack) > 0) :
-            if(len(self.stack) > 1) :
-                self.top = self.stack[-2]
-            else :
-                self.top = None
+        if(not(self.empty())) :                
+            self.top = self.stack[-2] if len(self.stack) > 1 else None
             return self.stack.pop()
+        
         return None
         
-if __name__ == '__main__':
+if(__name__ == "__main__") :
     import doctest
     doctest.testmod()
