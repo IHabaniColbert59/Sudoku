@@ -30,6 +30,8 @@ class Stack :
         """
         self.stack.append(el)
         self.top = el
+        
+        return None
     
     def empty(self) :
         """
@@ -71,7 +73,7 @@ class Stack :
         """
         
         if(not(self.empty())) :                
-            self.top = self.stack[-2] if len(self.stack) > 1 else None
+            self.top = self.stack[-2] if(len(self.stack) > 1) else None
             return self.stack.pop()
         
         return None
