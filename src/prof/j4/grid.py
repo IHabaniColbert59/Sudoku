@@ -136,7 +136,13 @@ class Grid:
             >>> S.cases[1].valid
             True
         """
-        pass
+        ligne = [case.value for case in self.cases if el.line == self.cases[position].line and el.position != position]
+        if self.cases[position].value not in ligne:
+            self.cases[position].valid = False
+            return False
+        else:
+            self.cases[position].valid = True
+        return True
             
     def verifRow(self, position):
         """
@@ -152,8 +158,11 @@ class Grid:
             >>> S.cases[9].valid
             True
         """
-        pass
-            
+        if self.cases[position].value not in self.cases[position].row:
+            self.cases[position].valid = True
+        else:
+            self.cases[position].valid = False
+
     def verifRegion(self, position):
         """
             position est la position de la case qui vient d'être modifiée

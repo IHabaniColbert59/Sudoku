@@ -1,5 +1,4 @@
 from case import Case
-from stack import Stack
 
 class Grid:
     
@@ -17,8 +16,7 @@ class Grid:
         self.puzzle = puzzle
         self.full = self.puzzle.count('.') == 0
         self.initCases()
-        self.puzzleNow = self.casesToString()
-        self.stack = Stack()
+        self.puzzleNow = self.casesToString()            
         
     def loadFromFile(num):
         """
@@ -36,7 +34,8 @@ class Grid:
     
     def initCases(self):
         """
-            Initialise une liste de 81 cases avec leur valeur suivant le puzzle
+            Initialise une liste de 81 cases représentée par l'attribut cases,
+            avec leur valeur suivant le puzzle.
             Cette méthode est à appelée lors de l'instanciation de l'objet
             Tests:
             >>> S = Grid()
@@ -48,13 +47,8 @@ class Grid:
             >>> S.cases[13].region == 2
             True
         """
-        self.cases = []
-        for i in range(81):
-            if self.puzzle[i] == '.':
-                self.cases.append(Case(i))
-            else:
-                self.cases.append(Case(i, int(self.puzzle[i])))
-                
+        self.cases = [Case(i, int(self.puzzle[i]) if self.puzzle[i] != '.' else None) for i in range(0,81)] #Wola c moi qui l'ai fait
+        
     def casesToString(self):
         """
             Retourne une chaine de caractère représentant le Sudoku
@@ -74,10 +68,16 @@ class Grid:
             >>> S.casesToString()[0] == '5'
             True
         """
-        S = ''
-        for c in self.cases:
-            S += str(c.value) if c.value != None else '.'
-        return S
+        
+          
+ ​        ​s ​= ​''
+         ​for​ ​i​ ​in​ ​range​(​81​):
+             ​if​ ​self​.​cases​[​i​].​value​ ​==​ ​None :
+                 ​s​ ​+=​ ​"." 
+ ​            ​else​: 
+ ​                ​s​ ​+=​ ​f'​{​self​.​cases​[​i​].​value​}​' 
+ ​        ​return​ ​s
+ ​                
                 
     def setValue(self, position, value):
         """
@@ -95,87 +95,14 @@ class Grid:
             >>> S.puzzleNow[0] == '7'
             False
         """
-        if self.puzzle[position] == '.':
-            self.stack.push((position, self.cases[position].value, value))
-            self.cases[position].setValue(value)
-            self.puzzleNow = self.casesToString()
-            
-            self.cases[position].valid = True # Changement de valeur, on réinitialise sa validité
-            self.verif(position)
-        
-    def undo(self):
-        """
-            Méthode permettant d'annuler les coups
-            Dépile l'élément de la pile historique et fait le coup inverse
-            
-            Tests :
-            >>> S = Grid()
-            >>> S.setValue(0, 5)
-            >>> S.stack.stack == [(0, None, 5)]
-            True
-            >>> S.setValue(0, 8)
-            >>> S.stack.stack == [(0, None, 5), (0, 5, 8)]
-            True
-        """
-        if not self.stack.empty():
-            old = self.stack.pop() # position, oldValue, newValue
-            self.setValue(old[0], old[1])
-            self.stack.pop()
-            
-    def verifLine(self, position):
-        """
-            position est la position de la case qui vient d'être modifiée
-            On teste toutes les cases de la ligne.
-            
-            Tests :
-            >>> S = Grid.loadFromFile(0)
-            >>> S.setValue(1, 4)
-            >>> S.cases[1].valid
-            False
-            >>> S.setValue(1, 7)
-            >>> S.cases[1].valid
-            True
-        """
-        pass
-            
-    def verifRow(self, position):
-        """
-            position est la position de la case qui vient d'être modifiée
-            On teste toutes les cases de la ligne.
-            
-            Tests :
-            >>> S = Grid.loadFromFile(0)
-            >>> S.setValue(9, 4)
-            >>> S.cases[9].valid
-            False
-            >>> S.setValue(9, 7)
-            >>> S.cases[9].valid
-            True
-        """
-        pass
-            
-    def verifRegion(self, position):
-        """
-            position est la position de la case qui vient d'être modifiée
-            On teste toutes les cases de la ligne.
-            
-            Tests :
-            >>> S = Grid.loadFromFile(0)
-            >>> S.setValue(20, 3)
-            >>> S.cases[20].valid
-            False
-            >>> S.setValue(20, 1)
-            >>> S.cases[20].valid
-            True
-        """
-        pass
-            
-    def verif(self, position):
-        """
-            Méthode qui permet de vérifier la ligne, la colonne et la région.
-        """
-        pass
-                    
+         
+ ​        ​if​ ​self​.​puzzle​[​position​] ​!=​ ​'.'​: 
+ ​            ​return​ ​None 
+ ​             
+ ​        ​else​: 
+ ​            ​self​.​cases​[​position​].​setValue​(​value​) 
+ ​            ​self​.​puzzleNow​ ​=​ ​self​.​casesToString​()
+                
     def __repr__(self):
         """
             Méthode de représentation d'un Sudoku
@@ -186,8 +113,10 @@ class Grid:
                 S += f'|{self.puzzleNow[i]}|\n'
             else:
                 S += f'|{self.puzzleNow[i]}'
-        return S
-
+        return S   
+    
+# print(Grid.initCases(Grid()))   
+   
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
