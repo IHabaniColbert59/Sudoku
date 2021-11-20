@@ -69,11 +69,11 @@ class Grid:
             True
         """
         
-         
- ​        ​s ​=​ ​"" 
- ​        ​for​ ​i​ ​in​ ​range​(​81​): 
- ​            ​if​ ​self​.​cases​[​i​].​value​ ​==​ ​None​: 
- ​                ​s​ ​+=​ ​"." 
+          
+ ​        ​s ​= ​''
+         ​for​ ​i​ ​in​ ​range​(​81​):
+             ​if​ ​self​.​cases​[​i​].​value​ ​==​ ​None :
+                 ​s​ ​+=​ ​"." 
  ​            ​else​: 
  ​                ​s​ ​+=​ ​f'​{​self​.​cases​[​i​].​value​}​' 
  ​        ​return​ ​s
